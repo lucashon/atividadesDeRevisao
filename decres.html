@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    main{
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 1rem; */
+
+    /* Com GRID */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    gap: 1rem;
+    height: 100vh;
+    
+}
+section{
+    display: flex;
+    justify-content: end;
+}
+
+</style>
+<body>
+    <main>
+        <section><img src="foto.png" alt=""></section>
+        <div>
+            <input id="input" type="text">
+            <button id="button">Decrescer</button>
+            <p id="p"></p>
+        </div>
+    </main>
+
+    <script>
+        const p = document.getElementById('p')
+        let button = document.getElementById('button')
+        button.addEventListener('click', ()=>{
+            let input = document.getElementById('input').value
+            let num = ''
+            for (let i = input; i >= 1; i--){
+           num = `${i}`
+        p.innerHTML += `${num}, `
+        } 
+        
+       
+        })
+    </script>
+</body>
+</html>

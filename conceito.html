@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura de Repetição</title>
+</head>
+<body>
+    <script>
+        // While = ENQUANTO
+        // Quando eu não sei quantas vezes vai ser repetido
+
+        function getInteiroAleatorioEntre(min, max){
+            // Math.random = numero aleatorio
+            const valor = Math.random() * (min - max) - min
+            return Math.floor(valor)
+        }
+        console.log(getInteiroAleatorioEntre(-1, 2))
+
+        let opcao = 1
+
+        while(opcao != -1){
+            opcao = getInteiroAleatorioEntre(-1, 2)
+            console.log(`opção escolhida: ${opcao}`)
+        }
+        console.log('Até Logo')
+
+        // for = PARA
+        //Quando eu sei exatamente quantas vezes vai repetir
+        for (let i = 1; i <= 10; i++){
+        console.log(`i: ${i}`)
+        }
+
+        const notas = [6.8 , 3.1 , 2.4 , 9.5 , 7.1]
+        // console.log(notas.length)
+        for (let i = 1; i < notas.length; i++){
+            if(notas[i] > 5){
+               console.log(`notas: ${notas[i]} `)
+            }
+     
+        }
+        
+    </script>
+</body>
+</html>

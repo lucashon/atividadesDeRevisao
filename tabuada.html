@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<style>
+    main{
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 1rem; */
+
+    /* Com GRID */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    gap: 1rem;
+    height: 100vh;
+
+}
+section{
+    display: flex;
+    justify-content: end;
+}
+
+</style>
+<body>
+   
+   
+    <main>
+    <section><img src="foto.png" alt=""></section>
+    <article>
+        <h2>Programa Tabuada</h2>
+        <input id="input" type="text">
+        <button id="button">Decrescer</button>
+        <hr>
+        <h2 id="outTabuada"></h2>
+    </article>
+
+</main>
+        
+        <script>
+        
+        const input = document.getElementById('input')
+        const button = document.getElementById('button')
+        const outTabuada = document.querySelector('#outTabuada')
+        button.addEventListener('click', ()=>{
+            let numero =  Number(input.value)
+
+            if(numero === 0 || isNaN(numero)){
+                alert('Digite um número válido')
+                input.focus()
+                return
+            }
+            let resposta = ''
+            for(let i = 1; i<=10; i++){
+                resposta = `${resposta+numero} x ${i} = ${numero * i} <br>`
+            }
+            outTabuada.innerHTML = `${resposta}`
+
+          
+            
+        })
+    </script>
+</body>
+</html>
