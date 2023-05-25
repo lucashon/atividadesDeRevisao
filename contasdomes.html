@@ -17,7 +17,7 @@
 
     /* Com GRID */
     /* display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; 
     align-content: center;
     gap: 1rem;
     height: 100vh; */
@@ -30,6 +30,14 @@ section{
 article{
     display: flex;
     flex-direction: column;
+    gap: 5px;
+}
+button{
+    width: 10vw;
+}
+.hr{
+    background-color: black;
+    height: 1px;
 }
 
 </style>
@@ -40,48 +48,53 @@ article{
     <section><img src="foto.png" alt=""></section>
     <article>
         <h2>Contas do Mês</h2>
-        <div><span>Descrição</span><input id="input" type="text"></div>
-        <div><span>Valor da Conta</span><input id="input2" type="text"></div>
+        <div><span>Descrição: </span><input id="input2" type="text"></div>
+        <div><span>Valor da Conta: </span><input id="input" type="text"></div>
         <button id="button">Registrar conta</button>
         
-        <hr>
-        <h2 id="outConta"></h2>
+        <div class="hr"></div>
+        
+        <p id="outConta"></p>
+        <p id="outQuantidade"></p>
+        
     </article>
 
 </main>
         
         <script>
-        
+            
         const input = document.getElementById('input')
         const input2 = document.getElementById('input2')
         const button = document.getElementById('button')
         const outConta = document.querySelector('#outConta')
+        const outQuantidade = document.querySelector('#outQuantidade')
         let contas = []
         let soma;
         button.addEventListener('click', ()=>{
-              outConta.innerHTML =
-             contas.push(Number(input.value))
-           
-            // console.log(contas)
+            let Descricao = input2.value
+            let valores  = input.value
             
+
+            if(Descricao === '' ){
+                alert('digite uma descrição valida')
+                input2.focus()
+            }else if(valores == 0 ||  isNaN(valores) || valores == '' ){
+                alert('Digite um número valido')
+                input.focus()
+                
+            }else{
+                contas.push(Number(input.value))
+                outConta.innerHTML += `${Descricao} - R$ ${valores}.00 <br>`
+            }
+     
+            let quantidade =  contas.length          
             soma = contas.reduce((acc ,att) => acc + att)
 
-            console.log(soma)
             // console.log(soma)
-                
-                
-            // let numero =  Number(input.value)
+            outQuantidade.innerHTML = `${quantidade} Contas Total R$: ${soma}.00`
 
-            // if(numero === 0 || isNaN(numero)){
-            //     alert('Digite um número válido')
-            //     input.focus()
-            //     return
-            // }
-            // let resposta = ''
-            // for(let i = 1; i<=10; i++){
-            //     resposta = `${resposta+numero} x ${i} = ${numero * i} <br>`
-            // }
-            // outTabuada.innerHTML = `${resposta}`
+            
+ 
 
           
             
